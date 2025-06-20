@@ -1,5 +1,30 @@
 ---
 title: "Connectedness"
 format: html
+author: Kellen
+execute:
+    echo: false
+    message: false
+    warning: false
 ---
 
+
+```{r}
+library(tidyverse)
+library(primer.data)
+```
+
+```{r}
+ggplot(connectedness, aes(x = population, y = connectedness)) +
+  geom_point(color = "black", alpha = 0.8) +
+  scale_x_log10() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(
+    title = "US County Populations versus Economic Connectedness",
+    subtitle = "Population size does not matter to EC",
+    x = "Population",
+    y = "Economic Connectedness",
+    caption = "Opportunity Insights"
+  ) +
+  theme_minimal()
+```
